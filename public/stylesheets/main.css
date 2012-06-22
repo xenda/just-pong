@@ -1,36 +1,80 @@
 /* @override http://localhost:4567/stylesheets/main.css */
 
 body {
-	background-color: #facd49;
+	background-color: #face49;
+	background-image: linear-gradient(bottom, rgb(250,206,73) 18%, rgb(255,238,127) 57%);
+	background-image: -o-linear-gradient(bottom, rgb(250,206,73) 18%, rgb(255,238,127) 57%);
+	background-image: -moz-linear-gradient(bottom, rgb(250,206,73) 18%, rgb(255,238,127) 57%);
+	background-image: -webkit-linear-gradient(bottom, rgb(250,206,73) 18%, rgb(255,238,127) 57%);
+	background-image: -ms-linear-gradient(bottom, rgb(250,206,73) 18%, rgb(255,238,127) 57%);
+	
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.18, rgb(250,206,73)),
+		color-stop(0.57, rgb(255,238,127))
+	);
+}
+
+h1 {
+	font-size: 62.5px;
+	margin: 0px;
+	color: white;
+	text-align: center;
+	font-family: "silkscreen";
+	text-shadow: 5px 5px black;
+}
+
+h2.left, h2.right {
+	margin: 0px;
+	font-family: "silkscreen";
+	font-size: 20px;
+}
+
+h2.left {
+	float: left;
+}
+
+h2.right {
+	float: right;
 }
 
 .wrapper {
 	width: 920px;
-	height: 500px;
 	margin: 0px auto;
-	background-color: rgba(174,174,174,0.51);
 	overflow: auto;
+}
+
+#board {
+	height: 500px;	
+	background-color: rgba(0,0,0,0.85);
 	position: relative;
+	-moz-box-shadow:    inset 0 0 20px #000;
+   	-webkit-box-shadow: inset 0 0 20px #000;
+   	box-shadow:         inset 0 0 20px #000;
+	border: 2px solid #ffd793;
 }
 
 div#ball {
-  width: 20px;
-  height: 20px;
-  background: red;
-  border-radius: 50%;
-  position: absolute;
-  /*left:  1%;*/
-}​
+  	width: 20px;
+  	height: 20px;
+  	background: red;
+  	border-radius: 50%;
+  	position: absolute;
+}
 
-h1 {
-	
+div#ball, .paddle {	
+	background-color: white;
+	position: absolute;
+	-moz-box-shadow:    inset 0 0 4px #000;
+    -webkit-box-shadow: inset 0 0 4px #000;
+    box-shadow:         inset 0 0 4px #000;
 }
 
 .paddle {
 	width: 10px;
 	height: 80px;
-	background-color: black;
-	position: absolute;
 }
 
 .paddle.left {
@@ -38,8 +82,22 @@ h1 {
 	top:  230px;
 }
 
-
 .paddle.right {
 	right: 100px;
 	top:  230px;
+}
+
+#instructions {
+	margin-top: 10px;
+	text-align: center;	
+	padding: 5px;
+	background-color: #ede98a;
+	font-family: "silkscreen";
+	margin-bottom: 20px;
+}
+
+#instructions strong {
+	text-shadow: 3px 2px black;
+	color: white;
+	font-size: 25px;
 }

@@ -2,19 +2,33 @@
 %html
   %head
     %link{:rel => "stylesheet", :href => "/stylesheets/main.css", :type => "text/css"}
+    %script{:charset => "utf-8", :src => "http://use.typekit.com/nmh1whr.js", :type => "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
   %body
-    %h1 Paddle Pong
-    %scores
+    .wrapper
+      %h1 Just Pong
       %h2.left
         Score:
         %span.left 0
       %h2.right
         Score:
         %span.right 0
-    .wrapper
+    #board.wrapper
       .paddle.left
       .paddle.right
       #ball
+    #instructions.wrapper
+      Press 
+      %strong [W]
+      and
+      %strong [S]
+      to move the left paddle and
+      %strong [I]
+      and
+      %strong [K]
+      to move the right one
+
     %script{:charset => "utf-8", :src => "https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", :type => "text/javascript"}
     %script{:charset => "utf-8", :src => "/javascripts/keymaster.js", :type => "text/javascript"}
     %script{:charset => "utf-8", :src => "/application.js", :type => "text/javascript"}
