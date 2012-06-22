@@ -1,8 +1,8 @@
 class Paddle
-  constructor: (@el, @wrapper) ->
+  constructor: (@el, @board) ->
     @steps       = 150
     @topLimit    = 0
-    @bottomLimit = wrapper.height()
+    @bottomLimit = board.height()
 
   belowTopBoundaries: ->
     @top() > Math.abs(@steps)
@@ -47,11 +47,11 @@ class Paddle
 
 
 class Ball
-  constructor: (@el, @wrapper) ->
+  constructor: (@el, @board) ->
     @leftLimit   = 0 #+ @el.position().left
-    @rightLimit  = @wrapper.width() - @el.width()
+    @rightLimit  = @board.width() - @el.width()
     @topLimit    = 0
-    @bottomLimit = @wrapper.height() - @el.height()
+    @bottomLimit = @board.height() - @el.height()
     @placeBall()
 
 
@@ -119,10 +119,10 @@ class Ball
 
 
 class GameManager
-  constructor: (@wrapper, leftPaddleEl, rightPaddleEl, ballEl) ->
-    @leftPaddle  = new Paddle leftPaddleEl, @wrapper
-    @rightPaddle = new Paddle rightPaddleEl, @wrapper
-    @ball        = new Ball ballEl, @wrapper
+  constructor: (@board, leftPaddleEl, rightPaddleEl, ballEl) ->
+    @leftPaddle  = new Paddle leftPaddleEl, @board
+    @rightPaddle = new Paddle rightPaddleEl, @board
+    @ball        = new Ball ballEl, @board
     @tick        = 0
     @leftScore   = 0
     @rightScore  = 0
@@ -156,5 +156,5 @@ class GameManager
     ,50
 
 $(document).ready ->
-  game = new GameManager $(".wrapper"), $(".paddle.left"), $(".paddle.right"), $("#ball")
+  game = new GameManager $("#board"), $(".paddle.left"), $(".paddle.right"), $("#ball")
   game.run()
