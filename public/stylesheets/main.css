@@ -1,0 +1,45 @@
+/* @override http://localhost:4567/stylesheets/main.css */
+
+body {
+	background-color: #facd49;
+}
+
+.wrapper {
+	width: 920px;
+	height: 500px;
+	margin: 0px auto;
+	background-color: rgba(174,174,174,0.51);
+	overflow: auto;
+	position: relative;
+}
+
+div#ball {
+  width: 20px;
+  height: 20px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  /*left:  1%;*/
+}​
+
+h1 {
+	
+}
+
+.paddle {
+	width: 10px;
+	height: 80px;
+	background-color: black;
+	position: absolute;
+}
+
+.paddle.left {
+	left: 100px;
+	top:  230px;
+}
+
+
+.paddle.right {
+	right: 100px;
+	top:  230px;
+}
