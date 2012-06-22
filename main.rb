@@ -1,12 +1,9 @@
-require 'sinatra'
-require 'haml'
-require 'coffee-script'
-require "sinatra/reloader" if development?
+require 'bundler'
+
+Bundler.setup
+Bundler.require(:default)
+Bundler.require(:development) if development?
 
 get "/" do
   haml :index
-end
-
-get "/application.js" do
-  coffee :application
 end
